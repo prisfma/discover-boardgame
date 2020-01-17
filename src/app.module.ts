@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { GameModule } from './game/game.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CategoryModule } from './category/category.module';
+import { GameTypeModule } from './game-type/game-type.module';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { CategoryModule } from './category/category.module';
         logging: true,
       }),
       GameModule,
-      CategoryModule],
+      CategoryModule,
+      GameTypeModule],
   controllers: [AppController],
   providers: [AppService],
 })

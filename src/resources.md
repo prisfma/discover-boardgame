@@ -3,6 +3,7 @@
 ## Entity
 
 ### board game
+
 - name
 - description
 - idade minima recomendada pelo jogo
@@ -10,9 +11,10 @@
 - duração min and max
 - ano de lançamento
 - main tipo
-- dependencia de idioma 
+- dependencia de idioma
 - complexidade
 
+- categoria
 
 - nota no ranking ludopedia
 - nota média ludopedia
@@ -32,11 +34,7 @@
 - editora
 - tipos (por exemplo family game)
 - mecanicas
-- categoria
 - temas
 - familia de jogos
 - outras versões
-- 
-
-
-
+-
