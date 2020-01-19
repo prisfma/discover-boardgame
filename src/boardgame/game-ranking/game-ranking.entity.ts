@@ -1,5 +1,18 @@
-import { IsString } from "class-validator";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {
+  IsString,
+  IsISO8601,
+  IsInt,
+  IsDecimal,
+  Max,
+  Min
+} from "class-validator";
+import {
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn
+} from "typeorm";
 
 @Entity("game_ranking")
 export class GameRankingEntity {
@@ -7,9 +20,27 @@ export class GameRankingEntity {
 
   @IsString()
   @Column("text")
-  name: String;
+  source: String;
+
+  @IsDecimal()
+  @Max(100)
+  @Min(0)
+  @Column("decimal", { precision: 2, scale: 2 })
+  value: Number;
 
   @IsString()
   @Column("text")
-  description: String;
+  type: RankingOrigen;
+
+  @CreateDateColumn({ name: "created_at" })
+  createdAt: Date;
+
+  @UpdateDateColumn({ name: "updated_at" })
+  updatedAt: Date;
+}
+
+export enum RankingOrigen {
+  MINIMUM,
+  MAXIMUM,
+  EXACTLY
 }

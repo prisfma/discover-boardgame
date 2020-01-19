@@ -27,10 +27,12 @@ import { GameFamilyEntity } from "./game-family/game-family.entity";
 import { GameDesignerEntity } from "./game-designer/game-designer.entity";
 import { GameAuthorEntity } from "./game-author/game-author.entity";
 import { GamePublisherEntity } from "./game-publisher/game-publisher.entity";
-import { NumberPlayersController } from './number-players/number-players.controller';
-import { NumberPlayersService } from './number-players/number-players.service';
-import { GameRankingService } from './game-ranking/game-ranking.service';
-import { GameRankingController } from './game-ranking/game-ranking.controller';
+import { GameNumberPlayersController } from "./game-number-players/game-number-players.controller";
+import { GameNumberPlayersService } from "./game-number-players/game-number-players.service";
+import { GameRankingService } from "./game-ranking/game-ranking.service";
+import { GameRankingController } from "./game-ranking/game-ranking.controller";
+import { GameNumberPlayerEntity } from "./game-number-players/game-number-player.entity";
+import { GameRankingEntity } from "./game-ranking/game-ranking.entity";
 
 @Module({
   controllers: [
@@ -43,7 +45,7 @@ import { GameRankingController } from './game-ranking/game-ranking.controller';
     GameDesignerController,
     GameAuthorController,
     GamePublisherController,
-    NumberPlayersController,
+    GameNumberPlayersController,
     GameRankingController
   ],
   imports: [
@@ -56,7 +58,9 @@ import { GameRankingController } from './game-ranking/game-ranking.controller';
       GameFamilyEntity,
       GameDesignerEntity,
       GameAuthorEntity,
-      GamePublisherEntity
+      GamePublisherEntity,
+      GameNumberPlayerEntity,
+      GameRankingEntity
     ])
   ],
   providers: [
@@ -69,7 +73,7 @@ import { GameRankingController } from './game-ranking/game-ranking.controller';
     GameDesignerService,
     GameAuthorService,
     GamePublisherService,
-    NumberPlayersService,
+    GameNumberPlayersService,
     GameRankingService
   ]
 })

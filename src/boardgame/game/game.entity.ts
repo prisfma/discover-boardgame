@@ -28,6 +28,8 @@ import { GameMechanicEntity } from "../game-mechanic/game-mechanic.entity";
 import { GamePublisherEntity } from "../game-publisher/game-publisher.entity";
 import { GameThemeEntity } from "../game-theme/game-theme.entity";
 import { GameTypeEntity } from "../game-type/game-type.entity";
+import { GameNumberPlayersEntity } from "../game-number-players/game-number-players.entity";
+import { GameRankingEntity } from "../game-ranking/game-ranking.entity";
 
 @Entity("game")
 export class GameEntity {
@@ -41,9 +43,9 @@ export class GameEntity {
   @Column("text")
   description: String;
 
-  @IsString()
-  @Column("text", { name: "main_type" })
-  mainType: String;
+  @ManyToOne(() => GameTypeEntity, { nullable: false })
+  @JoinColumn({ name: "main_game_type" })
+  mainType: GameTypeEntity;
 
   @IsString()
   @Column("text", { name: "language_dependence" })
@@ -81,6 +83,14 @@ export class GameEntity {
   @Min(0)
   @Column("decimal", { precision: 2, scale: 2 })
   complexity: number;
+
+  @ManyToMany(type => GameRankingEntity)
+  @JoinTable({ name: "game_game_ranking" })
+  ranking: GameRankingEntity[];
+
+  @ManyToMany(type => GameNumberPlayersEntity)
+  @JoinTable({ name: "game_game_number_players" })
+  numberPlayers: GameNumberPlayersEntity[];
 
   @ManyToMany(type => GameAuthorEntity)
   @JoinTable({ name: "game_game_author" })
