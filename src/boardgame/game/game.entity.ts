@@ -1,22 +1,10 @@
-import {
-  IsInt,
-  IsISO8601,
-  IsOptional,
-  IsString,
-  IsUUID,
-  Max,
-  Min,
-  IsDecimal
-} from "class-validator";
+import { IsInt, IsString, Max, Min, IsDecimal } from "class-validator";
 import {
   Column,
-  CreateDateColumn,
   Entity,
   JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
-  Unique,
-  UpdateDateColumn,
   ManyToMany,
   JoinTable
 } from "typeorm";
